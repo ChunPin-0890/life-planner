@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --surface-2: #f0f0ee;
+  --border: #e4e3e0;
+  --text: #201f1c;
+  --text-2: #6b6a66;
+  --text-3: #9a9994;
+  --accent: #3654c9;
+  --accent-soft: #e7ebfa;
+  --good: #2f9e5c;
+  --good-soft: #e6f5ec;
+}
+
+/* Explicit dark toggle (data-theme="dark") always wins. System preference
+   applies only when the user hasn't chosen a theme (no data-theme set). */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17181a;
+    --surface: #202226;
+    --surface-2: #2a2c30;
+    --border: #35373c;
+    --text: #f0efec;
+    --text-2: #a8a7a3;
+    --text-3: #777672;
+    --accent: #6c8cff;
+    --accent-soft: #2a3050;
+    --good: #4ade80;
+    --good-soft: #1c3327;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17181a;
+  --surface: #202226;
+  --surface-2: #2a2c30;
+  --border: #35373c;
+  --text: #f0efec;
+  --text-2: #a8a7a3;
+  --text-3: #777672;
+  --accent: #6c8cff;
+  --accent-soft: #2a3050;
+  --good: #4ade80;
+  --good-soft: #1c3327;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+#root {
+  min-height: 100svh;
+}
+
+@keyframes mascot-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes mascot-wiggle {
+  0%, 100% { transform: rotate(-3deg) scale(1); }
+  50% { transform: rotate(3deg) scale(1.08); }
+}
+@keyframes mascot-sway {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-3px) rotate(-2deg); }
+  75% { transform: translateX(3px) rotate(2deg); }
+}
+@keyframes mascot-walk {
+  0% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(14px) translateY(-4px); }
+  50% { transform: translateX(28px) translateY(0); }
+  75% { transform: translateX(14px) translateY(-4px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+@keyframes confetti-fall {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(140px) rotate(540deg); opacity: 0; }
+}
+@keyframes badge-pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes badge-shine {
+  0% { transform: translateX(-120%) rotate(20deg); }
+  100% { transform: translateX(220%) rotate(20deg); }
+}
